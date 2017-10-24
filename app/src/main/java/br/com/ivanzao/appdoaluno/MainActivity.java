@@ -2,6 +2,7 @@ package br.com.ivanzao.appdoaluno;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import br.com.ivanzao.appdoaluno.service.CrawlerService;
 import br.com.ivanzao.appdoaluno.service.model.RetrieveRequest;
@@ -69,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            dialog = ProgressDialog.show(MainActivity.this, "Por favor Aguarde...",
-                    "Obtendo os dados do aluno...");
+            dialog = ProgressDialog.show(MainActivity.this, "Por favor, aguarde",
+                    "Estamos obtendo seus dados!");
         }
 
         @Override
@@ -92,12 +94,13 @@ public class MainActivity extends AppCompatActivity {
                         response.getName() + " - " + response.getProgram().getName(),
                         context);
             } else {
-                ViewUtils.showOkAlert("Deu ruim ):",
+                ViewUtils.showOkAlert("Ops ):",
                         errorMessage,
                         context);
             }
 
             dialog.dismiss();
+            context.startActivity(new Intent(context, ));
         }
     }
 
