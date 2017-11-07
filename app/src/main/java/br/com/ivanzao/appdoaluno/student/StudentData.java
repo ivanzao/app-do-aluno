@@ -1,6 +1,6 @@
 package br.com.ivanzao.appdoaluno.student;
 
-
+import java.io.Serializable;
 import java.util.List;
 
 public class StudentData {

@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 
 import br.com.ivanzao.appdoaluno.service.CrawlerService;
 import br.com.ivanzao.appdoaluno.service.model.RetrieveRequest;
@@ -90,9 +93,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(StudentData response) {
             if (response != null) {
-                ViewUtils.showOkAlert("Login com sucesso",
-                        response.getName() + " - " + response.getProgram().getName(),
-                        context);
+                try {
+                    String responseString = new ObjectMapper().writeValueAsString(response);
+
+                    Intent intent = new Intent(MainActivity.this, StudentDataActivity.class);
+                    intent.putExtra("studentData", responseString);
+
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ViewUtils.showOkAlert("Ops deu pau ):",
+                            errorMessage,
+                            context);
+                }
             } else {
                 ViewUtils.showOkAlert("Ops ):",
                         errorMessage,
@@ -100,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             dialog.dismiss();
-            context.startActivity(new Intent(context, ));
         }
     }
 
