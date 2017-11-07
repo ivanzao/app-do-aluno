@@ -3,6 +3,7 @@ package br.com.ivanzao.appdoaluno;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.ListView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,4 +35,6 @@ public class StudentDataActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() { }
 }
