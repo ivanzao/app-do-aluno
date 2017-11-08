@@ -83,7 +83,7 @@ public class StudentCoursesAdapter extends ArrayAdapter<CourseData> {
 
             Grade grade0 = grades.get(0);
             TextView txtGradeDate0 = dataCard.findViewById(R.id.gradeDate0);
-            txtGradeDate0.setText(grade0.getDate().substring(5));
+            txtGradeDate0.setText(formatDate(grade0.getDate()));
 
             String mark0 = (grade0.getMark() != null) ?
                     String.valueOf(grade0.getMark()) :
@@ -96,7 +96,7 @@ public class StudentCoursesAdapter extends ArrayAdapter<CourseData> {
 
                 Grade grade1 = grades.get(1);
                 TextView txtGradeDate1 = dataCard.findViewById(R.id.gradeDate1);
-                txtGradeDate1.setText(grade1.getDate().substring(5));
+                txtGradeDate1.setText(formatDate(grade1.getDate()));
 
                 String mark1 = (grade1.getMark() != null) ?
                         String.valueOf(grade1.getMark()) :
@@ -110,18 +110,79 @@ public class StudentCoursesAdapter extends ArrayAdapter<CourseData> {
 
                 Grade grade2 = grades.get(2);
                 TextView txtGradeDate2 = dataCard.findViewById(R.id.gradeDate2);
-                txtGradeDate2.setText(grade2.getDate().substring(5));
+                txtGradeDate2.setText(formatDate(grade2.getDate()));
 
                 String mark2 = (grade2.getMark() != null) ?
                         String.valueOf(grade2.getMark()) :
                         "N/C";
-                TextView txtGradeMark2 = dataCard.findViewById(R.id.gradeMark2);
+                TextView txtGradeMark2 = dataCard.findViewById(R.id.edpGradeMark3);
                 txtGradeMark2.setText(mark2);
             }
         }
     }
 
     private void populateEdpGrades(View dataCard, List<Grade> edpGrades) {
+        if (edpGrades != null && edpGrades.size() > 0) {
+            dataCard.findViewById(R.id.edpTitle).setVisibility(View.VISIBLE);
+            dataCard.findViewById(R.id.edp0).setVisibility(View.VISIBLE);
+
+            Grade edpGrade0 = edpGrades.get(0);
+            TextView txtGradeDate0 = dataCard.findViewById(R.id.edpGradeDate0);
+            txtGradeDate0.setText(formatDate(edpGrade0.getDate()));
+
+            String mark0 = (edpGrade0.getMark() != null) ?
+                    String.valueOf(edpGrade0.getMark()) :
+                    "N/C";
+            TextView txtGradeMark0 = dataCard.findViewById(R.id.edpGradeMark0);
+            txtGradeMark0.setText(mark0);
+
+            if (edpGrades.size() > 1) {
+                dataCard.findViewById(R.id.edp1).setVisibility(View.VISIBLE);
+
+                Grade edpGrade1 = edpGrades.get(1);
+                TextView txtGradeDate1 = dataCard.findViewById(R.id.edpGradeDate1);
+                txtGradeDate1.setText(formatDate(edpGrade1.getDate()));
+
+                String mark1 = (edpGrade1.getMark() != null) ?
+                        String.valueOf(edpGrade1.getMark()) :
+                        "N/C";
+                TextView txtGradeMark1 = dataCard.findViewById(R.id.edpGradeMark1);
+                txtGradeMark1.setText(mark1);
+            }
+
+            if (edpGrades.size() > 2) {
+                dataCard.findViewById(R.id.edp2).setVisibility(View.VISIBLE);
+
+                Grade edpGrade2 = edpGrades.get(2);
+                TextView txtGradeDate2 = dataCard.findViewById(R.id.edpGradeDate2);
+                txtGradeDate2.setText(formatDate(edpGrade2.getDate()));
+
+                String mark2 = (edpGrade2.getMark() != null) ?
+                        String.valueOf(edpGrade2.getMark()) :
+                        "N/C";
+                TextView txtGradeMark2 = dataCard.findViewById(R.id.edpGradeMark2);
+                txtGradeMark2.setText(mark2);
+            }
+
+            if (edpGrades.size() > 3) {
+                dataCard.findViewById(R.id.edp3).setVisibility(View.VISIBLE);
+
+                Grade edpGrade3 = edpGrades.get(3);
+                TextView txtGradeDate2 = dataCard.findViewById(R.id.edpGradeDate3);
+                txtGradeDate2.setText(formatDate(edpGrade3.getDate()));
+
+                String mark3 = (edpGrade3.getMark() != null) ?
+                        String.valueOf(edpGrade3.getMark()) :
+                        "N/C";
+                TextView txtGradeMark2 = dataCard.findViewById(R.id.edpGradeMark3);
+                txtGradeMark2.setText(mark3);
+            }
+        }
+    }
+
+    private static String formatDate(String date) {
+        String[] splitDate = date.split("-");
+        return splitDate[2] + "/" + splitDate[1];
     }
 
 }

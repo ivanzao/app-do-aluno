@@ -289,7 +289,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/gradeMark2"
+                    android:id="@+id/edpGradeMark3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -309,21 +309,23 @@
             android:id="@+id/edpTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorGradeLabel"
             android:gravity="center"
             android:paddingBottom="2dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="2dp"
             android:text="Notas de EDPs"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="gone" />
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/edp0"
@@ -334,7 +336,7 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/edpGradeMark1"
+                    android:id="@+id/edpGradeDate0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -348,7 +350,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/edpGradeMark2"
+                    android:id="@+id/edpGradeMark0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -371,7 +373,7 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/edpGradeDate2"
+                    android:id="@+id/edpGradeDate1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -385,7 +387,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/edpGradeMark2"
+                    android:id="@+id/edpGradeMark1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -408,7 +410,7 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/edpGradeDate3"
+                    android:id="@+id/edpGradeDate2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -422,7 +424,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/edpGradeMark3"
+                    android:id="@+id/edpGradeMark2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -445,7 +447,7 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/edpGradeDate4"
+                    android:id="@+id/edpGradeDate3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -473,7 +475,7 @@
 
             </LinearLayout>
 
-        </GridLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
