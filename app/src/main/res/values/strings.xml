@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Aplicativo do Aluno</string>
+    <string name="back_to_login"><u>Voltar para tela de Login</u></string>
 </resources>

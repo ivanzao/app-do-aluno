@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 data = crawler.retrieveStudentData(params[0]);
             } catch (Exception e) {
                 errorMessage = e.getMessage();
+
+                if (errorMessage != null && errorMessage.equals("Incorrect password or invalid login")) {
+                    errorMessage = "Senha incorreta ou usuário inválido. Por favor tente novamente.";
+                }
             }
 
             return data;
