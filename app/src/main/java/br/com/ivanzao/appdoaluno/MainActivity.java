@@ -22,6 +22,7 @@ import br.com.ivanzao.appdoaluno.util.ViewUtils;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText txtHost;
     private EditText txtRa;
     private EditText txtPassword;
     private Button btnSubmit;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        txtHost = (EditText) findViewById(R.id.host);
         txtRa = (EditText) findViewById(R.id.ra);
         txtPassword = (EditText) findViewById(R.id.password);
         btnSubmit = (Button) findViewById(R.id.submit);
@@ -57,19 +59,22 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        new RetrieveStudentDataTask(this).execute(new RetrieveRequest(ra, password, false));
+        new RetrieveStudentDataTask(this, txtHost.getText().toString())
+                .execute(new RetrieveRequest(ra, password, false));
     }
 
     private class RetrieveStudentDataTask extends AsyncTask<RetrieveRequest, Integer, StudentData> {
 
         private final CrawlerService crawler = CrawlerService.getInstance();
         private final Context context;
+        private final String host;
 
         private ProgressDialog dialog;
         private String errorMessage;
 
-        RetrieveStudentDataTask(Context context) {
+        RetrieveStudentDataTask(Context context, String host) {
             this.context = context;
+            this.host = host;
         }
 
         @Override
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         protected StudentData doInBackground(RetrieveRequest... params) {
             StudentData data = null;
             try {
-                data = crawler.retrieveStudentData(params[0]);
+                data = crawler.retrieveStudentData(params[0], host);
             } catch (Exception e) {
                 if (e.getMessage().equals("Incorrect password or invalid login")) {
                     errorMessage = "Senha incorreta ou usuário inválido. Por favor tente novamente.";

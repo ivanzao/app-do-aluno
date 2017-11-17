@@ -59,6 +59,21 @@
             android:textColor="@color/colorPrimaryDark"
             android:textColorHint="#ffffff" />
 
+        <EditText
+            android:id="@+id/host"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bkgrd_blue_login_text"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Host"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#ffffff" />
+
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"

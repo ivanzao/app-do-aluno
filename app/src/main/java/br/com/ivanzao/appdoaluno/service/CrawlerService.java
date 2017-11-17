@@ -19,7 +19,7 @@ public class CrawlerService {
 
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-    private static final String HOST = "http://192.168.15.17:8080";
+    private static final String HOST = "http://192.168.15.15:8080";
     private static final String RETRIEVE_ENDPOINT = "/v1/student/retrieveData";
 
     private final OkHttpClient client = new OkHttpClient();
@@ -32,11 +32,13 @@ public class CrawlerService {
         return INSTANCE;
     }
 
-    public StudentData retrieveStudentData(RetrieveRequest data)
+    public StudentData retrieveStudentData(RetrieveRequest data, String host)
             throws CrawlerConnectionException, IOException {
+        host = (!host.isEmpty()) ? host : HOST;
+
         RequestBody requestBody = RequestBody.create(JSON, mapper.writeValueAsString(data));
         Request request = new Request.Builder()
-                .url(HOST + RETRIEVE_ENDPOINT)
+                .url(host + RETRIEVE_ENDPOINT)
                 .post(requestBody)
                 .build();
 
